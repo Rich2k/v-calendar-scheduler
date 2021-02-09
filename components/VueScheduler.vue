@@ -279,6 +279,7 @@
                 this.$emit(this.activeView + '-changed', this.activeDate.toDate() );
             },
             activeView() {
+                this.$emit(this.activeView + '-changed', this.activeDate.toDate() );
                 this.$emit('view-changed', this.activeView);
             }
         },
