@@ -141,8 +141,6 @@
             this.activeView = this.initialView;
             this.activeDate = moment(this.initialDate);
 
-            console.log('mounted');
-
             //  Bind events
             this.bindEvents();
         },
