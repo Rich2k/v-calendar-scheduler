@@ -77,6 +77,11 @@
                 // newEvents: JSON.parse(JSON.stringify(this.events))
             }
         },
+      created() {
+        EventBus.$on('rebuild-calendar', (event) => {
+          this.buildCalendar();
+        });
+      },
         mounted() {
             this.buildCalendar();
         },

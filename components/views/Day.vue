@@ -66,6 +66,11 @@
         mounted() {
             this.buildCalendar();
         },
+        created() {
+          EventBus.$on('rebuild-calendar', (event) => {
+            this.buildCalendar();
+          });
+        },
         methods: {
             timeClicked(data) {
                 EventBus.$emit('time-clicked', data)

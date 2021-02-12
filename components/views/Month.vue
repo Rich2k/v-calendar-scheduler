@@ -46,6 +46,11 @@
                 calendar: [],
             }
         },
+      created() {
+        EventBus.$on('rebuild-calendar', (event) => {
+          this.buildCalendar();
+        });
+      },
         mounted() {
             this.buildCalendar();
         },
