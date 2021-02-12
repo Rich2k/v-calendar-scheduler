@@ -235,6 +235,24 @@
                     //         multiple: true
                     //     }
                     // ]);
+                } else {
+                  let date = null;
+                  let startTime = null;
+                  let endTime = null;
+
+                  if ( data instanceof Date ) {
+                    date = data
+                  } else {
+                    date = data.date;
+                    startTime = data.time !== null ? moment(data.time, 'HH') : null;
+                    endTime = data.time !== null ? moment(data.time, 'HH').add(1, 'h') : null;
+                  }
+
+                  this.$emit('new-event-clicked', {
+                    'date': date,
+                    'startTime': startTime,
+                    'endTime': endTime,
+                  });
                 }
             },
             bindEvents() {
