@@ -19,8 +19,8 @@
                                         v-for="event,index in day.events.filter(e => !e.startTime)"
                                         :key="index"
                                         :event="event"
-                                        :use12="use12"
-                                        @click.stop="eventBus.$emit('event-clicked', event)">
+                                        :has-dynamic-size="false"
+                                        :use12="use12">
                                 </event-item>
                             </div>
                         </div>
