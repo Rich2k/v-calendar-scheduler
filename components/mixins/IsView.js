@@ -25,12 +25,6 @@ export default {
     },
     methods: {
         isDayDisabled(day) {
-            if ( !this.minDate && !this.maxDate )
-                return false;
-
-            if ( this.minDate && this.minDate.isAfter(day, 'day') ) return true;
-            if ( this.maxDate && this.maxDate.isBefore(day, 'day') ) return true;
-
             for (let i = 0; i<this.disabledDays.length; i++) {
                 let disabledDay = this.disabledDays[i];
 
@@ -38,6 +32,12 @@ export default {
                     return true;
                 }
             }
+
+            if ( !this.minDate && !this.maxDate )
+                return false;
+
+            if ( this.minDate && this.minDate.isAfter(day, 'day') ) return true;
+            if ( this.maxDate && this.maxDate.isBefore(day, 'day') ) return true;
         }
     },
     watch: {
