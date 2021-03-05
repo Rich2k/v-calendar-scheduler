@@ -28,7 +28,7 @@ export default {
             for (let i = 0; i<this.disabledDays.length; i++) {
                 let disabledDay = this.disabledDays[i];
 
-                if (disabledDay === day.format('d')) {
+                if (disabledDay === parseInt(day.format('d'))) {
                     return true;
                 }
             }

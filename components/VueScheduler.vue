@@ -176,6 +176,7 @@
                   let date = null;
                   let startTime = null;
                   let endTime = null;
+                  let dayDisabled = false;
 
                   if ( data instanceof Date ) {
                     date = data
@@ -183,13 +184,18 @@
                     date = data.date;
                     startTime = data.time !== null ? moment(data.time, 'HH') : null;
                     endTime = data.time !== null ? moment(data.time, 'HH').add(1, 'h') : null;
+                    if (typeof data.day !== 'undefined' && data.day && data.day.isDisabled) {
+                      dayDisabled = true;
+                    }
                   }
 
-                  this.$emit('new-event-clicked', {
-                    'date': date,
-                    'startTime': startTime,
-                    'endTime': endTime,
-                  });
+                  if (dayDisabled === false) {
+                    this.$emit('new-event-clicked', {
+                      'date': date,
+                      'startTime': startTime,
+                      'endTime': endTime,
+                    });
+                  }
                 }
             },
             bindEvents() {

@@ -11,7 +11,7 @@
             <div class="v-cal-days__wrapper">
                 <div class="v-cal-day v-cal-day--day" :class="{ 'is-today': day.isToday }" v-if="day !== null">
                     <div class="v-cal-day__hour-block all-day"
-                         @click="timeClicked({ date: day.d.toDate(), time: null })">
+                         @click="timeClicked({ day: day, date: day.d.toDate(), time: null })">
                         <span class="v-cal-day__hour-block-fill">00:00 <template v-if="use12">PM</template></span>
                         <div class="v-cal-day__hour-content">
                             <div class="v-cal-event-list" :class="{'tiny-events': day.events.filter(e => !e.startTime).length > 2}">
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                     <div class="v-cal-day__hour-block"
-                         @click="timeClicked({ date: day.d.toDate(), time: time.hour() })"
+                         @click="timeClicked({ day: day, date: day.d.toDate(), time: time.hour() })"
                          :class="[ time.isSame(now, 'hour') ? 'is-now' : '', hourClass ]" v-for="time in day.availableTimes">
                         <span class="v-cal-day__hour-block-fill">{{ time | formatTime(use12) }}</span>
                         <div class="v-cal-day__hour-content">
