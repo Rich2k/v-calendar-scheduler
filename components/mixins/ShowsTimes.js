@@ -13,7 +13,7 @@ export default {
     allDayLabel: {
       type: String,
       default: () => config.labels.all_day
-    }
+    },
   },
   data() {
     return {

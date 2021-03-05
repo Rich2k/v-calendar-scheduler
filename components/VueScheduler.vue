@@ -127,7 +127,11 @@
             eventDialogConfig: {
                 type: Object,
                 default: () => { return {} }
-            }
+            },
+            disabledDays: {
+                type: Array,
+                default: () => { return [] }
+            },
         },
         data() {
             return {
@@ -269,6 +273,7 @@
                     props.allDayLabel = this.labels.all_day;
                     props.timeRange = this.timeRange;
                     props.showTimeMarker = this.showTimeMarker;
+                    props.disabledDays = this.disabledDays;
                 }
                 return props;
             },
