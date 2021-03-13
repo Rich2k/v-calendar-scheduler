@@ -11,7 +11,7 @@
 
 <script>
     import moment from 'moment';
-    import { EventBus } from './EventBus';
+    //import { EventBus } from './EventBus';
 
     export default {
         name: "EventItem",
